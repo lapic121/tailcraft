@@ -22,7 +22,7 @@ h1,h2,h3{text-wrap:balance;margin:0;font-weight:700;letter-spacing:-.01em}
 a{color:inherit}
 .mono{font-family:var(--mono)}
 .eyebrow{font-family:var(--disp);text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--accent);font-weight:600}
- 
+
 /* hero */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .hero .glow{position:absolute;inset:0;background:
@@ -52,13 +52,13 @@ a{color:inherit}
 .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--muted);font-size:.9rem}
 .meta b{color:var(--fg);font-weight:600}
 .chipver{font-family:var(--mono);font-size:.8rem;background:rgba(76,217,100,.12);color:var(--green);border:1px solid rgba(76,217,100,.3);padding:3px 10px;border-radius:999px}
- 
+
 /* sections */
 section{padding-block:60px;border-bottom:1px solid var(--line)}
 .sec-head{max-width:60ch}
 .sec-head h2{font-size:clamp(1.5rem,3.4vw,2.1rem);margin-top:10px}
 .sec-head p{color:var(--muted);margin:12px 0 0}
- 
+
 .grid3{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .grid2{margin-top:34px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;min-width:0}
@@ -68,14 +68,14 @@ section{padding-block:60px;border-bottom:1px solid var(--line)}
 .card.green .dot{background:var(--green)}
 .tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}
 .tag{font-family:var(--mono);font-size:.72rem;color:var(--muted);background:var(--card2);border:1px solid var(--line);padding:4px 9px;border-radius:7px}
- 
+
 /* steps */
 .steps{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
 .step{background:var(--band);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative}
 .step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--mono);color:var(--accent);font-size:.8rem;font-weight:600}
 .step h3{margin-top:8px;font-size:1.05rem}
 .step p{color:var(--muted);margin:8px 0 0;font-size:.92rem}
- 
+
 /* compare table */
 .tablewrap{margin-top:30px;overflow-x:auto;border:1px solid var(--line);border-radius:14px}
 table{border-collapse:collapse;width:100%;min-width:560px;font-size:.92rem}
@@ -85,14 +85,14 @@ tbody th{font-weight:600;color:var(--muted);font-family:var(--body)}
 td .ok{color:var(--green)} td .no{color:var(--muted)}
 tr:last-child td,tr:last-child th{border-bottom:none}
 .reco{color:var(--accent);font-size:.78rem;font-weight:600;margin-left:6px}
- 
+
 /* notice */
 .notice{margin-top:28px;display:grid;gap:12px}
 .note{display:flex;gap:12px;background:var(--band);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;padding:14px 16px}
 .note.blue{border-left-color:var(--accent)}
 .note b{color:var(--fg)}
 .note p{margin:0;color:var(--muted);font-size:.92rem}
- 
+
 /* download band */
 .dl{background:linear-gradient(180deg,var(--band),var(--bg));text-align:center}
 .dl h2{font-size:clamp(1.6rem,4vw,2.3rem)}
@@ -101,13 +101,13 @@ tr:last-child td,tr:last-child th{border-bottom:none}
 .copyrow code{font-family:var(--mono);font-size:.82rem;color:var(--muted)}
 .copybtn{font-family:var(--disp);font-size:.82rem;font-weight:600;padding:7px 12px;border-radius:7px;border:1px solid var(--line);background:var(--card2);color:var(--fg);cursor:pointer}
 .copybtn:hover{border-color:var(--accent)}
- 
+
 /* support */
 .support{background:linear-gradient(180deg,var(--bg),var(--band));text-align:center}
 .support .kofi{display:inline-flex;align-items:center;gap:10px;background:#13c3ff;color:#003049;font-family:var(--disp);font-weight:700;font-size:1.05rem;padding:14px 26px;border-radius:12px;text-decoration:none;margin-top:22px;transition:transform .12s ease}
 .support .kofi:hover{transform:translateY(-2px)}
 .support .free{margin-top:16px;color:var(--muted);font-size:.92rem}
- 
+
 /* footer */
 footer{padding-block:40px}
 .foot{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;align-items:flex-start}
@@ -117,14 +117,14 @@ footer{padding-block:40px}
 .contact{display:grid;gap:6px;font-size:.92rem;color:var(--muted)}
 .contact .copyrow{margin-top:0;padding:4px 4px 4px 12px}
 .legal{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem;line-height:1.7}
- 
+
 @media (max-width:760px){
   .grid3,.grid2,.steps{grid-template-columns:1fr}
   .word{font-size:2rem}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
- 
+
 <header class="hero">
   <div class="glow"></div><div class="grid"></div>
   <div class="wrap">
@@ -139,14 +139,14 @@ footer{padding-block:40px}
       <a class="btn btn-ghost" href="https://github.com/lapic121/tailcraft" target="_blank" rel="noopener">GitHub 저장소</a>
     </div>
     <div class="meta">
-      <span class="chipver">v1.0</span>
+      <span class="chipver">v1.1</span>
       <span>💻 <b>Windows 10 / 11</b></span>
       <span>🧊 무료 · 오픈 배포</span>
       <span>📄 국문 · 영문 설명서 PDF 동봉</span>
     </div>
   </div>
 </header>
- 
+
 <section>
   <div class="wrap">
     <div class="sec-head">
@@ -164,7 +164,7 @@ footer{padding-block:40px}
     </div>
   </div>
 </section>
- 
+
 <section>
   <div class="wrap">
     <div class="sec-head">
@@ -186,7 +186,7 @@ footer{padding-block:40px}
     </div>
   </div>
 </section>
- 
+
 <section>
   <div class="wrap">
     <div class="sec-head">
@@ -201,7 +201,7 @@ footer{padding-block:40px}
     </div>
   </div>
 </section>
- 
+
 <section>
   <div class="wrap">
     <div class="sec-head">
@@ -215,7 +215,7 @@ footer{padding-block:40px}
     </div>
   </div>
 </section>
- 
+
 <section class="dl">
   <div class="wrap">
     <div class="eyebrow">Download</div>
@@ -228,10 +228,11 @@ footer{padding-block:40px}
     <div class="notice" style="text-align:left;max-width:680px;margin-inline:auto">
       <div class="note blue"><div><b>SmartScreen 경고가 뜨면</b><p>서명되지 않은 개인 배포라 "Windows의 PC 보호" 창이 나올 수 있습니다. <b>추가 정보 → 실행</b>을 누르면 됩니다. 한 번 실행하면 다시 뜨지 않습니다.</p></div></div>
       <div class="note"><div><b>알아두기</b><p>서버 jar·Java·플러그인은 동봉하지 않고 최초 실행 시 각 공식 배포처에서 받습니다. 서버 실행에는 Minecraft EULA 동의가 필요합니다. Tailscale 무료 플랜은 개인 용도 전용입니다.</p></div></div>
+      <div class="note blue"><div><b>소스 공개 · 무결성 검증</b><p>코드는 <a href="https://github.com/lapic121/tailcraft" target="_blank" rel="noopener" style="color:var(--accent)">GitHub</a>에서 누구나 열람할 수 있습니다(소스 공개형). 받은 파일이 공식본인지 <code class="mono" style="font-size:.8rem">certutil -hashfile TailCraft.exe SHA256</code> 로 확인하세요 — 값은 저장소 README에 있습니다.</p></div></div>
     </div>
   </div>
 </section>
- 
+
 <section class="support">
   <div class="wrap">
     <div class="eyebrow">Support</div>
@@ -241,7 +242,7 @@ footer{padding-block:40px}
     <p class="free">모든 기능은 후원과 무관하게 무료로 제공됩니다.</p>
   </div>
 </section>
- 
+
 <footer>
   <div class="wrap">
     <div class="foot">
@@ -263,7 +264,7 @@ footer{padding-block:40px}
     </div>
   </div>
 </footer>
- 
+
 <script>
 document.querySelectorAll(".copybtn").forEach(function(b){
   b.addEventListener("click",function(){
