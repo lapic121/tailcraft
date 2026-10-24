@@ -1,0 +1,7 @@
+payload/ 는 빌드 시 생성합니다 (루트의 정본 스크립트를 복사):
+  mkdir -p payload/lib
+  cp ../../launcher.ps1 payload/launcher.ps1
+  cp ../../lib/core.ps1 payload/lib/core.ps1
+  cp ../../LICENSE.txt  payload/LICENSE.txt
+그런 다음:
+  GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -ldflags "-s -w -H=windowsgui" -o TailCraft.exe .
