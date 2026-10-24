@@ -23,6 +23,11 @@ a{color:inherit}
 .mono{font-family:var(--mono)}
 .eyebrow{font-family:var(--disp);text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--accent);font-weight:600}
 
+/* language switch */
+.langsw{position:fixed;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));z-index:50;display:flex;gap:2px;background:rgba(35,37,47,.86);backdrop-filter:blur(6px);border:1px solid var(--line);border-radius:999px;padding:3px}
+.langsw button{font-family:var(--disp);font-weight:600;font-size:.76rem;color:var(--muted);background:transparent;border:0;padding:6px 12px;border-radius:999px;cursor:pointer;transition:background .12s,color .12s}
+.langsw button.on{background:var(--accent);color:#fff}
+
 /* hero */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
 .hero .glow{position:absolute;inset:0;background:
@@ -125,6 +130,11 @@ footer{padding-block:40px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
+<div class="langsw" aria-label="Language">
+  <button type="button" data-lang="ko">KO</button>
+  <button type="button" data-lang="en">EN</button>
+</div>
+
 <header class="hero">
   <div class="glow"></div><div class="grid"></div>
   <div class="wrap">
@@ -132,17 +142,17 @@ footer{padding-block:40px}
       <div class="cube"><span class="s2"></span><span class="s1"></span><span class="s3"></span></div>
       <div class="word">Tail<b>Craft</b></div>
     </div>
-    <h1 class="lead">포트포워딩 없이, <span class="hl">설치 하나로</span> 여는 마인크래프트 서버</h1>
-    <p class="sub">EXE 하나를 실행하면 GUI 런처가 뜨고, 처음 켜면 8단계 튜토리얼이 버튼을 눌러가며 서버 완성까지 안내합니다. Java·서버 파일은 자동으로, 친구 초대는 안내문 복사 한 번으로.</p>
+    <h1 class="lead" data-i18n="heroLead">포트포워딩 없이, <span class="hl">설치 하나로</span> 여는 마인크래프트 서버</h1>
+    <p class="sub" data-i18n="heroSub">EXE 하나를 실행하면 GUI 런처가 뜨고, 처음 켜면 8단계 튜토리얼이 버튼을 눌러가며 서버 완성까지 안내합니다. Java·서버 파일은 자동으로, 친구 초대는 안내문 복사 한 번으로.</p>
     <div class="cta">
-      <a class="btn btn-primary" href="https://github.com/lapic121/tailcraft/releases/latest/download/TailCraft.zip">⬇ 다운로드 <small>TailCraft.zip</small></a>
-      <a class="btn btn-ghost" href="https://github.com/lapic121/tailcraft" target="_blank" rel="noopener">GitHub 저장소</a>
+      <a class="btn btn-primary" href="https://github.com/lapic121/tailcraft/releases/latest/download/TailCraft.zip" data-i18n="heroDl">⬇ 다운로드 <small>TailCraft.zip</small></a>
+      <a class="btn btn-ghost" href="https://github.com/lapic121/tailcraft" target="_blank" rel="noopener" data-i18n="heroRepo">GitHub 저장소</a>
     </div>
     <div class="meta">
       <span class="chipver">v1.1</span>
       <span>💻 <b>Windows 10 / 11</b></span>
-      <span>🧊 무료 · 오픈 배포</span>
-      <span>📄 국문 · 영문 설명서 PDF 동봉</span>
+      <span data-i18n="metaFree">🧊 무료 · 오픈 배포</span>
+      <span data-i18n="metaPdf">📄 국문 · 영문 설명서 PDF 동봉</span>
     </div>
   </div>
 </header>
@@ -151,16 +161,16 @@ footer{padding-block:40px}
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Server software</div>
-      <h2>원하는 서버 종류와 버전을 전부 선택</h2>
-      <p>공식 배포처에서 실행 시점에 내려받습니다. 필요한 Java(8·17·21·25)는 버전에 맞춰 자동 설치됩니다.</p>
+      <h2 data-i18n="s1h2">원하는 서버 종류와 버전을 전부 선택</h2>
+      <p data-i18n="s1p">공식 배포처에서 실행 시점에 내려받습니다. 필요한 Java(8·17·21·25)는 버전에 맞춰 자동 설치됩니다.</p>
     </div>
     <div class="grid3">
-      <div class="card"><h3><span class="dot"></span>Paper</h3><p>플러그인·바닐라 최적화. 대부분의 친구 서버에 적합. 바닐라 클라이언트로 접속 가능.</p></div>
-      <div class="card"><h3><span class="dot"></span>Fabric</h3><p>가벼운 모드. Fabric API 자동 설치. 친구도 같은 모드 필요.</p></div>
-      <div class="card"><h3><span class="dot"></span>NeoForge · Forge</h3><p>대형 모드팩. 인스톨러 자동 처리, 친구용 모드 zip 내보내기 지원.</p></div>
-      <div class="card green"><h3><span class="dot"></span>Arclight</h3><p>Forge·NeoForge·Fabric 서버에서 <b>Bukkit 플러그인(EssentialsX 등)까지</b> 함께 사용하는 하이브리드.</p></div>
-      <div class="card green"><h3><span class="dot"></span>버전 자동 로드</h3><p>마인크래프트 버전·빌드를 공식 API에서 실시간으로 받아 드롭다운에 채웁니다.</p></div>
-      <div class="card green"><h3><span class="dot"></span>jar 미동봉</h3><p>서버 파일을 재배포하지 않고 공식 서버에서 직접 다운로드 — 라이선스 안전.</p></div>
+      <div class="card"><h3><span class="dot"></span>Paper</h3><p data-i18n="cPaper">플러그인·바닐라 최적화. 대부분의 친구 서버에 적합. 바닐라 클라이언트로 접속 가능.</p></div>
+      <div class="card"><h3><span class="dot"></span>Fabric</h3><p data-i18n="cFabric">가벼운 모드. Fabric API 자동 설치. 친구도 같은 모드 필요.</p></div>
+      <div class="card"><h3><span class="dot"></span>NeoForge · Forge</h3><p data-i18n="cForge">대형 모드팩. 인스톨러 자동 처리, 친구용 모드 zip 내보내기 지원.</p></div>
+      <div class="card green"><h3><span class="dot"></span>Arclight</h3><p data-i18n="cArclight">Forge·NeoForge·Fabric 서버에서 <b>Bukkit 플러그인(EssentialsX 등)까지</b> 함께 사용하는 하이브리드.</p></div>
+      <div class="card green"><h3><span class="dot"></span><span data-i18n="cAutoH">버전 자동 로드</span></h3><p data-i18n="cAutoP">마인크래프트 버전·빌드를 공식 API에서 실시간으로 받아 드롭다운에 채웁니다.</p></div>
+      <div class="card green"><h3><span class="dot"></span><span data-i18n="cNojarH">jar 미동봉</span></h3><p data-i18n="cNojarP">서버 파일을 재배포하지 않고 공식 서버에서 직접 다운로드 — 라이선스 안전.</p></div>
     </div>
   </div>
 </section>
@@ -169,18 +179,18 @@ footer{padding-block:40px}
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Connectivity</div>
-      <h2>친구 접속 방식 3가지 중 선택</h2>
-      <p>환경에 맞게 고르면 런처가 해당 패널만 보여줍니다. 어느 방식이든 방화벽은 버튼 한 번.</p>
+      <h2 data-i18n="s2h2">친구 접속 방식 3가지 중 선택</h2>
+      <p data-i18n="s2p">환경에 맞게 고르면 런처가 해당 패널만 보여줍니다. 어느 방식이든 방화벽은 버튼 한 번.</p>
     </div>
     <div class="tablewrap">
       <table>
-        <thead><tr><th>항목</th><th>Tailscale<span class="reco">추천</span></th><th>포트포워딩</th><th>LAN</th></tr></thead>
+        <thead><tr><th data-i18n="tHdr0">항목</th><th data-i18n="tHdrTs">Tailscale<span class="reco">추천</span></th><th data-i18n="tHdrPort">포트포워딩</th><th>LAN</th></tr></thead>
         <tbody>
-          <tr><th>공유기 설정</th><td class="ok">불필요</td><td>필요 (UPnP면 자동)</td><td class="ok">불필요</td></tr>
-          <tr><th>친구가 할 일</th><td>앱 설치 + 링크 수락</td><td class="ok">없음 (주소만 입력)</td><td class="ok">없음</td></tr>
-          <tr><th>보안</th><td class="ok">암호화 P2P, 포트 비노출</td><td class="no">포트가 공개됨</td><td>외부 접근 불가</td></tr>
-          <tr><th>인원 제한</th><td>노드 공유로 무제한</td><td class="ok">없음</td><td class="ok">없음</td></tr>
-          <tr><th>기숙사·회사·LTE</th><td class="ok">가능</td><td class="no">불가</td><td>—</td></tr>
+          <tr><th data-i18n="tRouter">공유기 설정</th><td class="ok" data-i18n="tRouterA">불필요</td><td data-i18n="tRouterB">필요 (UPnP면 자동)</td><td class="ok" data-i18n="tRouterC">불필요</td></tr>
+          <tr><th data-i18n="tFriend">친구가 할 일</th><td data-i18n="tFriendA">앱 설치 + 링크 수락</td><td class="ok" data-i18n="tFriendB">없음 (주소만 입력)</td><td class="ok" data-i18n="tFriendC">없음</td></tr>
+          <tr><th data-i18n="tSec">보안</th><td class="ok" data-i18n="tSecA">암호화 P2P, 포트 비노출</td><td class="no" data-i18n="tSecB">포트가 공개됨</td><td data-i18n="tSecC">외부 접근 불가</td></tr>
+          <tr><th data-i18n="tCap">인원 제한</th><td data-i18n="tCapA">노드 공유로 무제한</td><td class="ok" data-i18n="tCapB">없음</td><td class="ok" data-i18n="tCapC">없음</td></tr>
+          <tr><th data-i18n="tEnv">기숙사·회사·LTE</th><td class="ok" data-i18n="tEnvA">가능</td><td class="no" data-i18n="tEnvB">불가</td><td>—</td></tr>
         </tbody>
       </table>
     </div>
@@ -191,13 +201,13 @@ footer{padding-block:40px}
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Management</div>
-      <h2>서버를 열고 나서도 한 화면에서</h2>
+      <h2 data-i18n="s3h2">서버를 열고 나서도 한 화면에서</h2>
     </div>
     <div class="grid2">
-      <div class="card"><h3><span class="dot"></span>실시간 대시보드</h3><p>CPU·RAM·디스크·접속자를 실시간으로. 램 할당은 슬라이더로 즉시 변경, 친구용 안내문은 복사 한 번.</p></div>
-      <div class="card"><h3><span class="dot"></span>모드·플러그인 관리</h3><p>Modrinth 검색·설치(필수 의존성 자동), 사용/사용 안 함 토글, 추천 세트, 친구용 모드 zip 내보내기.</p></div>
-      <div class="card"><h3><span class="dot"></span>플레이어 관리</h3><p>접속자 닉네임·IP·Tailscale 기기·최근 접속 기록. 화이트리스트·OP·킥·밴을 클릭 한 번으로.</p></div>
-      <div class="card"><h3><span class="dot"></span>디버깅 도구</h3><p>콘솔 빠른 명령 버튼과 즐겨찾기, 진단 실행(Java·포트·방화벽·테일스케일·로그를 한 번에 수집·복사).</p></div>
+      <div class="card"><h3><span class="dot"></span><span data-i18n="cDashH">실시간 대시보드</span></h3><p data-i18n="cDashP">CPU·RAM·디스크·접속자를 실시간으로. 램 할당은 슬라이더로 즉시 변경, 친구용 안내문은 복사 한 번.</p></div>
+      <div class="card"><h3><span class="dot"></span><span data-i18n="cModH">모드·플러그인 관리</span></h3><p data-i18n="cModP">Modrinth 검색·설치(필수 의존성 자동), 사용/사용 안 함 토글, 추천 세트, 친구용 모드 zip 내보내기.</p></div>
+      <div class="card"><h3><span class="dot"></span><span data-i18n="cPlayH">플레이어 관리</span></h3><p data-i18n="cPlayP">접속자 닉네임·IP·Tailscale 기기·최근 접속 기록. 화이트리스트·OP·킥·밴을 클릭 한 번으로.</p></div>
+      <div class="card"><h3><span class="dot"></span><span data-i18n="cDbgH">디버깅 도구</span></h3><p data-i18n="cDbgP">콘솔 빠른 명령 버튼과 즐겨찾기, 진단 실행(Java·포트·방화벽·테일스케일·로그를 한 번에 수집·복사).</p></div>
     </div>
   </div>
 </section>
@@ -206,12 +216,12 @@ footer{padding-block:40px}
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">How it works</div>
-      <h2>다운로드부터 친구 접속까지</h2>
+      <h2 data-i18n="s4h2">다운로드부터 친구 접속까지</h2>
     </div>
     <div class="steps">
-      <div class="step"><h3>받고 실행</h3><p>zip을 풀고 TailCraft.exe 실행. 라이선스 동의 후 8단계 튜토리얼이 시작됩니다.</p></div>
-      <div class="step"><h3>서버 선택·설치</h3><p>서버 종류·버전을 고르고 설치. Java와 서버 파일, 기본 플러그인까지 자동.</p></div>
-      <div class="step"><h3>초대·접속</h3><p>방화벽 버튼 → 친구용 안내문 복사 → 친구에게 전송. 끝.</p></div>
+      <div class="step"><h3 data-i18n="st1h">받고 실행</h3><p data-i18n="st1p">zip을 풀고 TailCraft.exe 실행. 라이선스 동의 후 8단계 튜토리얼이 시작됩니다.</p></div>
+      <div class="step"><h3 data-i18n="st2h">서버 선택·설치</h3><p data-i18n="st2p">서버 종류·버전을 고르고 설치. Java와 서버 파일, 기본 플러그인까지 자동.</p></div>
+      <div class="step"><h3 data-i18n="st3h">초대·접속</h3><p data-i18n="st3p">방화벽 버튼 → 친구용 안내문 복사 → 친구에게 전송. 끝.</p></div>
     </div>
   </div>
 </section>
@@ -219,16 +229,16 @@ footer{padding-block:40px}
 <section class="dl">
   <div class="wrap">
     <div class="eyebrow">Download</div>
-    <h2>지금 받아서 서버 여세요</h2>
-    <p>Windows 10/11 · 추가 설치 없음 · 국문/영문 네트워크 설정 가이드 PDF 동봉</p>
+    <h2 data-i18n="dlH2">지금 받아서 서버 여세요</h2>
+    <p data-i18n="dlP">Windows 10/11 · 추가 설치 없음 · 국문/영문 네트워크 설정 가이드 PDF 동봉</p>
     <div class="cta" style="justify-content:center">
-      <a class="btn btn-primary" href="https://github.com/lapic121/tailcraft/releases/latest/download/TailCraft.zip">⬇ TailCraft.zip 다운로드</a>
-      <a class="btn btn-ghost" href="https://discord.gg/rv5sH6RbS" target="_blank" rel="noopener">💬 디스코드</a>
+      <a class="btn btn-primary" href="https://github.com/lapic121/tailcraft/releases/latest/download/TailCraft.zip" data-i18n="dlBtn">⬇ TailCraft.zip 다운로드</a>
+      <a class="btn btn-ghost" href="https://discord.gg/rv5sH6RbS" target="_blank" rel="noopener" data-i18n="dlDiscord">💬 디스코드</a>
     </div>
     <div class="notice" style="text-align:left;max-width:680px;margin-inline:auto">
-      <div class="note blue"><div><b>SmartScreen 경고가 뜨면</b><p>서명되지 않은 개인 배포라 "Windows의 PC 보호" 창이 나올 수 있습니다. <b>추가 정보 → 실행</b>을 누르면 됩니다. 한 번 실행하면 다시 뜨지 않습니다.</p></div></div>
-      <div class="note"><div><b>알아두기</b><p>서버 jar·Java·플러그인은 동봉하지 않고 최초 실행 시 각 공식 배포처에서 받습니다. 서버 실행에는 Minecraft EULA 동의가 필요합니다. Tailscale 무료 플랜은 개인 용도 전용입니다.</p></div></div>
-      <div class="note blue"><div><b>소스 공개 · 무결성 검증</b><p>코드는 <a href="https://github.com/lapic121/tailcraft" target="_blank" rel="noopener" style="color:var(--accent)">GitHub</a>에서 누구나 열람할 수 있습니다(소스 공개형). 받은 파일이 공식본인지 <code class="mono" style="font-size:.8rem">certutil -hashfile TailCraft.exe SHA256</code> 로 확인하세요 — 값은 저장소 README에 있습니다.</p></div></div>
+      <div class="note blue"><div><b data-i18n="n1b">SmartScreen 경고가 뜨면</b><p data-i18n="n1p">서명되지 않은 개인 배포라 "Windows의 PC 보호" 창이 나올 수 있습니다. <b>추가 정보 → 실행</b>을 누르면 됩니다. 한 번 실행하면 다시 뜨지 않습니다.</p></div></div>
+      <div class="note"><div><b data-i18n="n2b">알아두기</b><p data-i18n="n2p">서버 jar·Java·플러그인은 동봉하지 않고 최초 실행 시 각 공식 배포처에서 받습니다. 서버 실행에는 Minecraft EULA 동의가 필요합니다. Tailscale 무료 플랜은 개인 용도 전용입니다.</p></div></div>
+      <div class="note blue"><div><b data-i18n="n3b">소스 공개 · 무결성 검증</b><p data-i18n="n3p">코드는 <a href="https://github.com/lapic121/tailcraft" target="_blank" rel="noopener" style="color:var(--accent)">GitHub</a>에서 누구나 열람할 수 있습니다(소스 공개형). 받은 파일이 공식본인지 <code class="mono" style="font-size:.8rem">certutil -hashfile TailCraft.exe SHA256</code> 로 확인하세요 — 값은 저장소 README에 있습니다.</p></div></div>
     </div>
   </div>
 </section>
@@ -236,10 +246,10 @@ footer{padding-block:40px}
 <section class="support">
   <div class="wrap">
     <div class="eyebrow">Support</div>
-    <h2 style="font-size:clamp(1.5rem,3.4vw,2.1rem);margin-top:10px">도움이 됐다면 커피 한 잔 ☕</h2>
-    <p style="color:var(--muted);margin:12px auto 0;max-width:46ch">TailCraft는 앞으로도 무료입니다. 응원해주고 싶다면 작은 후원이 다음 업데이트에 큰 힘이 됩니다. 후원은 전적으로 선택이에요.</p>
-    <a class="kofi" href="https://ko-fi.com/sangdeok" target="_blank" rel="noopener">☕ Ko-fi에서 후원하기</a>
-    <p class="free">모든 기능은 후원과 무관하게 무료로 제공됩니다.</p>
+    <h2 style="font-size:clamp(1.5rem,3.4vw,2.1rem);margin-top:10px" data-i18n="supH2">도움이 됐다면 커피 한 잔 ☕</h2>
+    <p style="color:var(--muted);margin:12px auto 0;max-width:46ch" data-i18n="supP">TailCraft는 앞으로도 무료입니다. 응원해주고 싶다면 작은 후원이 다음 업데이트에 큰 힘이 됩니다. 후원은 전적으로 선택이에요.</p>
+    <a class="kofi" href="https://ko-fi.com/sangdeok" target="_blank" rel="noopener" data-i18n="supKofi">☕ Ko-fi에서 후원하기</a>
+    <p class="free" data-i18n="supFree">모든 기능은 후원과 무관하게 무료로 제공됩니다.</p>
   </div>
 </section>
 
@@ -248,17 +258,17 @@ footer{padding-block:40px}
     <div class="foot">
       <div>
         <div class="brand"><div class="cube" style="width:38px;height:38px"><span class="s2"></span><span class="s1"></span><span class="s3" style="width:13px;height:13px"></span></div><div class="word">Tail<b>Craft</b></div></div>
-        <p style="color:var(--muted);margin:14px 0 0;max-width:60ch;font-size:.92rem">Mojang · Microsoft · Tailscale과 무관한 비공식 도구입니다.</p>
+        <p style="color:var(--muted);margin:14px 0 0;max-width:60ch;font-size:.92rem" data-i18n="footTag">Mojang · Microsoft · Tailscale과 무관한 비공식 도구입니다.</p>
       </div>
       <div class="contact">
-        <div><b style="color:var(--fg)">문의 · Sangdeok</b></div>
-        <div class="copyrow"><code id="mail">dwxw777@gmail.com</code><button class="copybtn" data-copy="dwxw777@gmail.com">복사</button></div>
-        <div><a href="https://discord.gg/rv5sH6RbS" target="_blank" rel="noopener">디스코드 서버 참여 →</a></div>
-        <div><a href="https://github.com/lapic121/tailcraft" target="_blank" rel="noopener">GitHub 저장소 →</a></div>
-        <div><a href="https://ko-fi.com/sangdeok" target="_blank" rel="noopener">☕ Ko-fi 후원 →</a></div>
+        <div><b style="color:var(--fg)" data-i18n="footContact">문의 · Sangdeok</b></div>
+        <div class="copyrow"><code id="mail">dwxw777@gmail.com</code><button class="copybtn" data-copy="dwxw777@gmail.com" data-i18n="copyBtn">복사</button></div>
+        <div><a href="https://discord.gg/rv5sH6RbS" target="_blank" rel="noopener" data-i18n="footDiscord">디스코드 서버 참여 →</a></div>
+        <div><a href="https://github.com/lapic121/tailcraft" target="_blank" rel="noopener" data-i18n="footRepo">GitHub 저장소 →</a></div>
+        <div><a href="https://ko-fi.com/sangdeok" target="_blank" rel="noopener" data-i18n="footKofi">☕ Ko-fi 후원 →</a></div>
       </div>
     </div>
-    <div class="legal">
+    <div class="legal" data-i18n="footLegal">
       © 2026 Sangdeok. All rights reserved. 수정·재배포·복제 금지 — 자세한 내용은 배포본의 LICENSE.txt를 확인하세요.<br>
       "Minecraft"는 Mojang Studios의, "Tailscale"은 Tailscale Inc.의 상표이며, 본 페이지의 언급은 호환성 설명을 위한 것입니다.
     </div>
@@ -266,17 +276,129 @@ footer{padding-block:40px}
 </footer>
 
 <script>
-document.querySelectorAll(".copybtn").forEach(function(b){
-  b.addEventListener("click",function(){
-    var t=b.getAttribute("data-copy");
-    function done(){var o=b.textContent;b.textContent="복사됨";setTimeout(function(){b.textContent=o},1400);}
-    try{
-      navigator.clipboard.writeText(t).then(done,function(){fallback()});
-    }catch(e){fallback()}
-    function fallback(){
-      try{var r=document.createRange();r.selectNodeContents(document.getElementById("mail"));
-        var s=window.getSelection();s.removeAllRanges();s.addRange(r);done();}catch(e){}
-    }
+(function(){
+  var EN = {
+    heroLead: `Open a Minecraft server <span class="hl">in one click</span> — no port forwarding`,
+    heroSub: `Run one EXE and a GUI launcher opens. On first launch an 8-step tutorial walks you button by button to a finished server. Java and server files are automatic; inviting friends is a single copy-paste.`,
+    heroDl: `⬇ Download <small>TailCraft.zip</small>`,
+    heroRepo: `GitHub repo`,
+    metaFree: `🧊 Free · open release`,
+    metaPdf: `📄 Korean & English setup PDFs included`,
+    s1h2: `Pick any server type and version`,
+    s1p: `Everything downloads from official sources at runtime. The right Java (8 · 17 · 21 · 25) installs itself to match your version.`,
+    cPaper: `Plugin & vanilla-optimized. Great for most friend servers. Joinable with the vanilla client.`,
+    cFabric: `Lightweight mods. Fabric API installed automatically. Friends need the same mods.`,
+    cForge: `Big modpacks. Installer handled for you, with mod-zip export for friends.`,
+    cArclight: `A hybrid that runs <b>Bukkit plugins (EssentialsX, etc.)</b> on Forge · NeoForge · Fabric servers.`,
+    cAutoH: `Auto-loaded versions`,
+    cAutoP: `Minecraft versions and builds are pulled live from official APIs into the dropdowns.`,
+    cNojarH: `No bundled jars`,
+    cNojarP: `Server files are never redistributed — they download straight from official servers, so it stays license-safe.`,
+    s2h2: `Choose one of three ways for friends to join`,
+    s2p: `Pick what fits your setup and the launcher shows only that panel. Either way, the firewall is one button.`,
+    tHdr0: `Option`,
+    tHdrTs: `Tailscale<span class="reco">recommended</span>`,
+    tHdrPort: `Port forwarding`,
+    tRouter: `Router setup`,
+    tRouterA: `Not needed`,
+    tRouterB: `Needed (automatic with UPnP)`,
+    tRouterC: `Not needed`,
+    tFriend: `What friends do`,
+    tFriendA: `Install app + accept link`,
+    tFriendB: `Nothing (just enter the address)`,
+    tFriendC: `Nothing`,
+    tSec: `Security`,
+    tSecA: `Encrypted P2P, no exposed ports`,
+    tSecB: `A port is exposed`,
+    tSecC: `No outside access`,
+    tCap: `Player cap`,
+    tCapA: `Unlimited via node sharing`,
+    tCapB: `None`,
+    tCapC: `None`,
+    tEnv: `Dorm / office / mobile`,
+    tEnvA: `Works`,
+    tEnvB: `No`,
+    s3h2: `One screen, even after the server is up`,
+    cDashH: `Live dashboard`,
+    cDashP: `CPU, RAM, disk and players in real time. Change RAM allocation instantly with a slider; copy the friend invite in one click.`,
+    cModH: `Mods & plugins`,
+    cModP: `Modrinth search & install (required dependencies auto-resolved), enable/disable toggle, recommended sets, mod-zip export for friends.`,
+    cPlayH: `Player tools`,
+    cPlayP: `Player nickname, IP, Tailscale device and recent-join history. Whitelist, OP, kick and ban in one click.`,
+    cDbgH: `Debugging tools`,
+    cDbgP: `Quick-command buttons and favorites, plus a diagnostics run that collects and copies Java, ports, firewall, Tailscale and logs at once.`,
+    s4h2: `From download to friends online`,
+    st1h: `Get & run`,
+    st1p: `Unzip and run TailCraft.exe. After accepting the license, the 8-step tutorial begins.`,
+    st2h: `Pick & install`,
+    st2p: `Choose a server type and version and install. Java, server files and base plugins are all automatic.`,
+    st3h: `Invite & join`,
+    st3p: `Firewall button → copy the friend invite → send it. Done.`,
+    dlH2: `Download now and open your server`,
+    dlP: `Windows 10/11 · nothing else to install · Korean/English network-setup guide PDFs included`,
+    dlBtn: `⬇ Download TailCraft.zip`,
+    dlDiscord: `💬 Discord`,
+    n1b: `If SmartScreen warns`,
+    n1p: `As an unsigned personal build, a "Windows protected your PC" dialog may appear. Click <b>More info → Run anyway</b>. It won't show up again after the first run.`,
+    n2b: `Good to know`,
+    n2p: `Server jars, Java and plugins aren't bundled — they download from official sources on first run. Running a server requires accepting the Minecraft EULA. Tailscale's free plan is for personal use only.`,
+    n3b: `Source-available · integrity check`,
+    n3p: `Anyone can read the code on <a href="https://github.com/lapic121/tailcraft" target="_blank" rel="noopener" style="color:var(--accent)">GitHub</a> (source-available). Verify your download is the official build with <code class="mono" style="font-size:.8rem">certutil -hashfile TailCraft.exe SHA256</code> — the value is in the repo README.`,
+    supH2: `If it helped, buy me a coffee ☕`,
+    supP: `TailCraft stays free. If you'd like to cheer it on, a small tip is a big boost for the next update. Supporting is entirely optional.`,
+    supKofi: `☕ Support on Ko-fi`,
+    supFree: `Every feature is free, regardless of tips.`,
+    footTag: `An unofficial tool, not affiliated with Mojang, Microsoft or Tailscale.`,
+    footContact: `Contact · Sangdeok`,
+    copyBtn: `Copy`,
+    footDiscord: `Join the Discord →`,
+    footRepo: `GitHub repo →`,
+    footKofi: `☕ Support on Ko-fi →`,
+    footLegal: `© 2026 Sangdeok. All rights reserved. No modification, redistribution or copying — see LICENSE.txt in the release for details.<br>"Minecraft" is a trademark of Mojang Studios and "Tailscale" of Tailscale Inc.; references here are for compatibility only.`
+  };
+
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var KO = {};
+  nodes.forEach(function(el){ KO[el.getAttribute('data-i18n')] = el.innerHTML; });
+  var lang = 'ko';
+
+  function apply(l){
+    lang = (l === 'en') ? 'en' : 'ko';
+    nodes.forEach(function(el){
+      var k = el.getAttribute('data-i18n');
+      var v = (lang === 'en') ? EN[k] : KO[k];
+      if (v != null) el.innerHTML = v;
+    });
+    try{ document.documentElement.lang = lang; }catch(e){}
+    document.querySelectorAll('.langsw button').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-lang') === lang);
+    });
+    try{ localStorage.setItem('tc_lang', lang); }catch(e){}
+  }
+
+  var saved = null;
+  try{ saved = localStorage.getItem('tc_lang'); }catch(e){}
+  var isKo = (navigator.languages || [navigator.language || 'en']).some(function(x){ return /^ko/i.test(x); });
+  apply(saved || (isKo ? 'ko' : 'en'));
+
+  document.querySelectorAll('.langsw button').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
   });
-});
+
+  document.querySelectorAll(".copybtn").forEach(function(b){
+    b.addEventListener("click",function(){
+      var t=b.getAttribute("data-copy");
+      function done(){
+        b.textContent = (lang==='en') ? "Copied" : "복사됨";
+        setTimeout(function(){ b.textContent = (lang==='en') ? "Copy" : "복사"; },1400);
+      }
+      try{ navigator.clipboard.writeText(t).then(done,function(){fallback()}); }
+      catch(e){ fallback(); }
+      function fallback(){
+        try{ var r=document.createRange(); r.selectNodeContents(document.getElementById("mail"));
+          var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); done(); }catch(e){}
+      }
+    });
+  });
+})();
 </script>
